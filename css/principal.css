@@ -1,0 +1,17 @@
+.logo {
+	width: 100%;
+}
+input[type="text"],
+input[type="password"],
+textarea {
+	text-transform: uppercase;
+}
+.dropzone-col .dropzone {
+	border: 2px dashed #BDBDBD;
+	border-radius: 10px;
+	min-height: 200px !important;
+	max-height: 200px !important;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #F6F8FF;
+}

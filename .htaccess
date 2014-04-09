@@ -1,0 +1,7 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^inicio$ index.php [L]
+RewriteRule ^login$ entrar.php [L]
+RewriteRule ^salir$ logout.php [L]
+RewriteRule ^memo-([0-9]+)$ app/reportes/vistas/memo.php?enide=$1

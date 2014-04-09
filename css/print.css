@@ -1,0 +1,60 @@
+@media print {
+	* {
+		font-family: sans-serif;
+	}
+	img {
+		display: block;
+	}
+
+	.imagen {
+		display: block;
+	}
+	h1 {
+		text-align: center;
+		font-size: 15px;
+		font-weight: bold;
+		font-style: italic;
+		text-decoration: underline;
+		margin: 0px 0px 0px 0px;
+	}
+	.table {
+		border-collapse: collapse;
+		width: 90%;
+		margin: 100px auto 0px auto;
+	}
+	.table th {
+		text-align: left;
+		border-bottom: 1px solid #D2D2D2;
+		width: 18%;
+		padding: 5px 0px;
+	}
+	.table td {
+		border-bottom: 1px solid #D2D2D2;
+		width: 82%;
+		padding: 5px 0px;
+	}
+	.mensaje {
+		text-align: justify;
+		padding: 20px 0px 50px 0px;
+		width: 90%;
+		text-indent: 10px;
+		margin: 0px auto;
+		height: 330px;
+		max-height: 330px;
+	}
+	.firma {
+		display: block;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		margin: 0px 0px 20px 0px;
+	}
+	.cc {
+		font-size: 8px;
+		color: #7B7B7B;
+		width: 90%;
+		display: block;
+		margin: 0px auto;
+	}
+
+}
