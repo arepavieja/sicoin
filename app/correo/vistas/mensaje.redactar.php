@@ -52,10 +52,13 @@ $usua_rows = $musuarios->selectAll();
 				var msj = $('.wysiwyg-editor').html();
 				//var mensaje = $('#mensaje').val(msj)
 				//alert(msj);
+				modalForm('loading.php','');
 				$.post('app/correo/procesos/p.mensaje.enviar.php',$('.redactar-mensaje').serialize()+'&mensaje='+msj,function(data){
 					if(data==1) {
+						$('.modal').modal('hide');
 						load('app/correo/vistas/admin.panel.php','enviado=1','#admin-panel');
 					} else {
+						$('.modal').modal('hide');
 						alerta('.msj','danger',data);
 					}
 				})

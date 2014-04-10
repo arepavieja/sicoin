@@ -53,8 +53,14 @@ $html .= '<table class="table">
 			<td>'.$men_row[0]->metitulo.'</td>
 		</tr>
 	</tbody>
-</table>
-<div class="mensaje">'.$men_row[0]->memensaj.'</div>
+</table>';
+
+$totalCaracteresPágina = 1500;
+//$totalCaracteres = strlen($men_row[0]->memensaj);
+$mensaje = substr($men_row[0]->memensaj,0,strrpos(substr($men_row[0]->memensaj,0,$totalCaracteresPágina)," "));
+
+$html .= '<div class="mensaje">'.$mensaje.'</div>
+
 	<div class="firma">'.$men_row[0]->rapellido.', '.$men_row[0]->rnombre.' <br> '.$men_row[0]->rcadescri.' '.$men_row[0]->rdedescri.'</div>';
 $html .= '<div class="cc">';
 	if(count($concopia)>0) {

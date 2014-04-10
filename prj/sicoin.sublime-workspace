@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"form",
+				"formaDeEnvio"
+			],
+			[
+				"padding-",
+				"padding-right:   (property)"
+			],
+			[
 				"page",
 				"page-break-before"
 			],
@@ -560,19 +568,43 @@
 	},
 	"file_history":
 	[
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/clases/mAprobar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/clases/cCorreo.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/clases/mCorreo.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/js/funciones.js",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/cfg/funciones.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.leer.enviados.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/loading.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.redactar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.leer.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/enespera.lista.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/procesos/p.mensaje.editar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/js/guardar.js",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/mensaje.editar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/procesos/p.mensaje-editar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/js/guardar.aprobar.js",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/admin.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/aprobar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/js/control.checkbox.js",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.editar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/enespera.lista.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/aprobar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/js",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/cfg/base.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/clases/cAprobar.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/recibidos.lista.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/enviados.lista.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/css/print.css",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/reportes/vistas/memo.php",
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/css/principal.css",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/lib/dompdf/include/cached_pdf_decorator.cls.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/lib/dompdf/dompdf_config.inc.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/cfg/config.php",
-		"/opt/lampp/htdocs/sistemas/iutai/casicoin/cfg/base.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/lib/dompdf/PHPMailer/PHPMailerAutoload.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/lib/dompdf/PHPMailer/class.smtp.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/cuenta.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/clases/mUsuarios.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/admin.panel.php",
-		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.redactar.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/procesos/p.mensaje.enviar.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/usuario.insert.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/usuario.update.php",
@@ -580,7 +612,6 @@
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/usuario.delete.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/estado.update.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/js/assets.php",
-		"/opt/lampp/htdocs/sistemas/iutai/casicoin/js/funciones.js",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/procesos/p.usuario.delete.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/usuarios.lista.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/usuarios/vistas/permisos.lista.php",
@@ -664,30 +695,7 @@
 		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/procesos/p.cargo.update.php",
 		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/vistas/cargo.delete.php",
 		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/vistas/cargo.update.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/clases/cCargos.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/js/uncompressed/bootstrap.js",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/procesos/p.cargo.delete.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/procesos/p.cargo.insert.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/vistas/cargos.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/css/principal.css",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/css/chosen.min.css",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/css/ace.min.css",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/css/bootstrap.min.css",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo/vistas/js/wysiwyg.js",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/logout.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/css/uncompressed/bootstrap.css",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/js/mailAdmin.js",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/vistas/mensaje.leer.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/clases/mCorreo2.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/clases/cCorreo2.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/vistas/recibidos.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/vistas/admin.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo/vistas/mensaje.enviar.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo2/vistas/mensaje.enviar.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo/vistas/barra.navegacion.php",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/lib/assets/js/ace-elements.min.js",
-		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/correo/clases/c.php"
+		"/opt/lampp/htdocs/sistemas/unidad.sistemas/casicoin/app/cargos/clases/cCargos.php"
 	],
 	"find":
 	{
@@ -706,6 +714,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"aprobar",
+			"ent",
 			"image(",
 			"image()",
 			"css",
@@ -831,9 +841,7 @@
 			"Procedencia",
 			"cana_emb",
 			"bovi_ide",
-			"canal_num",
-			"fadeOut",
-			"blur"
+			"canal_num"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -911,13 +919,13 @@
 		"cols":
 		[
 			0.0,
-			0.490462566376,
+			0.548887629882,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.533819310133,
+			0.485551983401,
 			1.0
 		]
 	},
@@ -933,6 +941,34 @@
 		"selected_items":
 		[
 			[
+				"base",
+				"cfg/base.php"
+			],
+			[
+				"fnc",
+				"js/funciones.js"
+			],
+			[
+				"funcion",
+				"cfg/funciones.php"
+			],
+			[
+				"ccorreo",
+				"app/correo/clases/cCorreo.php"
+			],
+			[
+				"mcorr",
+				"app/correo/clases/mCorreo.php"
+			],
+			[
+				"print",
+				"css/print.css"
+			],
+			[
+				"princi",
+				"css/principal.css"
+			],
+			[
 				"prin",
 				"css/print.css"
 			],
@@ -941,16 +977,8 @@
 				"cfg/config.php"
 			],
 			[
-				"print",
-				"css/print.css"
-			],
-			[
 				"musuario",
 				"app/usuarios/clases/mUsuarios.php"
-			],
-			[
-				"base",
-				"cfg/base.php"
 			],
 			[
 				"musuar",
@@ -973,16 +1001,8 @@
 				"app/usuarios/procesos/p.login.php"
 			],
 			[
-				"mcorr",
-				"app/correo/clases/mCorreo.php"
-			],
-			[
 				"con",
 				"cfg/config.php"
-			],
-			[
-				"funcion",
-				"cfg/funciones.php"
 			],
 			[
 				"mcor",
@@ -1091,10 +1111,6 @@
 			[
 				"m.",
 				"app/modulo/clases/m.php"
-			],
-			[
-				"princi",
-				"css/principal.css"
 			],
 			[
 				"mort",

@@ -14,3 +14,6 @@ function modalForm(url,datos) {
 		$('.modal .modal-dialog .modal-content').html(data);
 	})
 }
+function cerrarmodal() {
+	$('.modal').modal('hide');
+}

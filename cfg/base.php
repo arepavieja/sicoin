@@ -21,13 +21,15 @@ $folder = array(
 		'usuarios',
 		'correo',
 		'cargos',
-		'dptos'
+		'dptos',
+		'aprobar',
 	);
 $files  = array(
 		array('mUsuarios','cUsuarios'),
 		array('mCorreo','cCorreo'),
 		array('mCargos','cCargos'),
-		array('mDptos','cDptos')
+		array('mDptos','cDptos'),
+		array('mAprobar','cAprobar'),
 	);
 /**
  * El sistema busca las rutas dentro de app para crear los directorios

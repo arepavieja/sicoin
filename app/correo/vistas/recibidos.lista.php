@@ -4,7 +4,6 @@ $recib_row = $mcorreo->selectRecibidos();
 $etiquetas = $mcorreo->etiquetas();
 ?>
 <script src="app/correo/vistas/js/control.checkbox.js"></script>
-
 <script>
 	function procesarMensajes(ide) {
 		datos = $('.mensajes').serialize()+'&'+ide;

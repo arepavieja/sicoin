@@ -51,8 +51,8 @@ class mCorreo {
 		 * Creamos el mensaje y lo guardamos en la tabla.
 		 * @var string
 		 */
-		$sql = "INSERT INTO ammensaj (peide, metitulo, memensaj, mereenvi, mefecha, mehora)
-			VALUES (?, ?, ?, 0, now(), now())";
+		$sql = "INSERT INTO ammensaj (peide, metitulo, memensaj, mereenvi, mefecha, mehora, meestado)
+			VALUES (?, ?, ?, 0, now(), now(), 0)";
 		$res = $this->con->prepare($sql);
 		$res->bindParam(1,$_SESSION['casicoin_usr']);
 		$res->bindParam(2,$this->asunto);
@@ -88,41 +88,51 @@ class mCorreo {
 		 * Guardamos el mensaje al destinatario principal
 		 * @var string
 		 */
-		$sql = "INSERT INTO adentrad (meide, peide, etide, enlectur, entipo) VALUES (?, ?, 3, 0, 1)";
+		$sql = "INSERT INTO adentrad (meide, peide, etide, enlectur, entipo, enestatu) VALUES (?, ?, 3, 0, 1,2)";
 		$res = $this->con->prepare($sql);
 		$res->bindParam(1,$meide);
 		$res->bindParam(2,$this->para);
 		$exe_4 = ($res->execute()==true) ? true : $this->msj[] = print_r($res->errorInfo());
-		if($exe_4==true):
+		/*if($exe_4==true):
 			$destinatario = $this->selectIde($this->para);
 			$destino  = $destinatario[0]->pecorreo;
 			$destino2 = $destinatario[0]->pecoralt;
 			$rt1      = $this->sendMail($from,$fromName,$destino);
 			$rt2      = $this->sendMail($from,$fromName,$destino2);
-		endif;
+		endif;*/
 		/**
 		 * Enviamos el mensaje a los destinatarios con copia
 		 */
 		if(isset($_POST['cc']) and count($_POST['cc'])>0) {
 			foreach($_POST['cc'] as $c) {	
-				$sql = "INSERT INTO adentrad (meide, peide, etide, enlectur, entipo) VALUES (?, ?, 3, 0, 2)";
+				$sql = "INSERT INTO adentrad (meide, peide, etide, enlectur, entipo, enestatu) VALUES (?, ?, 3, 0, 2, 2)";
 				$res = $this->con->prepare($sql);
 				$res->bindParam(1,$meide);
 				$res->bindParam(2,$c);
 				$exe_5 = ($res->execute()==true) ? true : $this->msj[] = print_r($res->errorInfo());
-				if($exe_5==true):
+				/*if($exe_5==true):
 					$destinatario = $this->selectIde($c);
 					$destino  = $destinatario[0]->pecorreo;
 					$destino2 = $destinatario[0]->pecoralt;
 					$rt1      = $this->sendMail($from,$fromName,$destino);
 					$rt2      = $this->sendMail($from,$fromName,$destino2);
-				endif;
+				endif;*/
 			}
 		} else {
 			$exe_5 = true;
 		}
 
-		if($exe_1==true and $exe_3==true and $exe_4==true and $exe_5==true) {
+		/**
+		 * Guardamos el mensaje en salida
+		 * @var string
+		 */
+		$sql = "INSERT INTO adsalida (meide, peide) VALUES (?, ?)";
+		$res = $this->con->prepare($sql);
+		$res->bindParam(1,$meide);
+		$res->bindParam(2,$_SESSION['casicoin_usr']);
+		$exe_6 = ($res->execute()==true) ? true : $this->msj[] = print_r($res->errorInfo());
+
+		if($exe_1==true and $exe_3==true and $exe_4==true and $exe_5==true and $exe_6==true) {
 			$this->con->commit();
 			$rt = 1;
 		} else {
@@ -149,9 +159,8 @@ class mCorreo {
 
 	function selectEnviados() {
 		$sql = "SELECT * FROM ammensaj AS men
-			INNER JOIN adentrad AS ent ON men.meide=ent.meide
-			INNER JOIN amperson AS per ON ent.peide=per.peide
-			WHERE men.peide=? AND ent.entipo=1
+			INNER JOIN adsalida AS sal ON men.meide=sal.meide
+			WHERE men.peide=?
 			ORDER BY men.mefecha, men.mehora DESC";
 		$res = $this->con->prepare($sql);
 		$res->bindParam(1,$_SESSION['casicoin_usr']);

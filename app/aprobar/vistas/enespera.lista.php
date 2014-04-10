@@ -1,8 +1,8 @@
 <?php 
 require '../../../cfg/base.php';
-$recib_row = $mcorreo->selectEnviados();
+$recib_row = $maprobar->selectPorAprobar();
 ?>
-
+<script src="app/aprobar/vistas/js/control.checkbox.js"></script>
 <script>
 	$(function(){
 		$('#id-toggle-all').on('click', function() {
@@ -63,13 +63,30 @@ $recib_row = $mcorreo->selectEnviados();
 		});
 	})
 </script>
-<div class="space-20"></div>
+
+<!--*****************************************************-->
+
+<div class="row">
+	<ul class="nav nav-pills pull-right herramientas-mensaje">
+    <li class="disabled">
+      <a href="" class="text-success" onclick=""><i class="fa fa-check"></i> Aprobar</a>
+    </li>
+    <li class="disabled">
+      <a href="" class="text-success" onclick=""><i class="fa fa-times"></i> En Espera</a>
+    </li>
+    <li class="">
+      <a href="#" class="text-success" onclick="load('app/correo/vistas/enespera.lista.php','enviado=0','#admin-panel'); return false;"><i class="fa fa-refresh"></i> Refrescar</a>
+    </li>
+	</ul>
+</div>
+
+<!-- ****************************************************-->
+
 <div class="table-responsive">
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th style="width:50px">
-<!--					
 						<div class="btn-group">
 							<input id="id-toggle-all" class="ace" type="checkbox">
 							<span class="lbl"></span>
@@ -92,8 +109,8 @@ $recib_row = $mcorreo->selectEnviados();
 								</li>
 							</ul>
 						</div>
--->
 				</th>
+				<th>Remitente</th>
 				<th>Asunto</th>
 				<th class="hidden-480">Fecha</th>
 				<th class="hidden-480">Hora</th>
@@ -105,16 +122,15 @@ $recib_row = $mcorreo->selectEnviados();
 				<?php foreach($recib_row as $rr) { ?>
 					<tr class="<?php echo $ccorreo->leidos($rr->meestado); ?>">
 						<td>
-<!--							
 							<label for="">
-								<input type="checkbox" class="ace">
-								<span class="lbl"></span>
-							</label>
--->						
+									<input type="checkbox" class="ace itemmensaje" name="itemmensaje[]" value="<?php echo $rr->saide ?>">
+									<span class="lbl"></span>
+								</label>
 						</td>
+						<td><?php echo $rr->peapelli.', '.$rr->penombre ?></td>
 						<td>
 							<?php echo $ccorreo->siHayAdjuntos($rr->meide) ?> 
-							<a href="#" onclick="load('app/correo/vistas/mensaje.leer.enviados.php','enide=<?php echo $rr->enide ?>&activarLeido=0','#opcion-etiqueta')">
+							<a href="#" onclick="load('app/aprobar/vistas/mensaje.editar.php','meide=<?php echo $rr->meide ?>&activarLeido=0','#admin-panel')">
 								<?php echo $rr->metitulo ?>
 							</a>
 						</td>
@@ -135,59 +151,5 @@ $recib_row = $mcorreo->selectEnviados();
 				</tr>
 			<?php } ?>
 		</tbody>
-</table>
-
-<!--
-		<tbody>
-			<tr class="bolder">
-				<td>
-					<label for="">
-						<input type="checkbox" class="ace">
-						<span class="lbl"></span>
-					</label>
-				</td>
-				<td>Publio Quintero</td>
-				<td>Jornada de cedulación</td>
-				<td class="hidden-480">10-02-2013</td>
-				<td class="hidden-480">14:23</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="">
-						<input type="checkbox" class="ace">
-						<span class="lbl"></span>
-					</label>
-				</td>
-				<td>Publio Quintero</td>
-				<td>Jornada de cedulación</td>
-				<td class="hidden-480">10-02-2013</td>
-				<td class="hidden-480">14:23</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="">
-						<input type="checkbox" class="ace">
-						<span class="lbl"></span>
-					</label>
-				</td>
-				<td>Publio Quintero</td>
-				<td>Jornada de cedulación</td>
-				<td class="hidden-480">10-02-2013</td>
-				<td class="hidden-480">14:23</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="">
-						<input type="checkbox" class="ace">
-						<span class="lbl"></span>
-					</label>
-				</td>
-				<td>Publio Quintero</td>
-				<td>Jornada de cedulación</td>
-				<td class="hidden-480">10-02-2013</td>
-				<td class="hidden-480">14:23</td>
-			</tr>
-		</tbody>
--->
 	</table>
 </div>
