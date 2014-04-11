@@ -125,13 +125,13 @@ $recib_row = $mcorreo->selectEnviados();
 							<?php echo substr($rr->mehora, 0,5) ?>
 						</td>
 						<td>
-							<?php echo $ccorreo->estado($rr->meestado); ?>
+							<?php echo $caprobar->estado($rr->meestado); ?>
 						</td>
 					</tr>
 				<?php } ?>
 			<?php } else { ?>
 				<tr>
-					<td colspan="4">No hay mensajes anviados</td>
+					<td colspan="4">No hay mensajes enviados</td>
 				</tr>
 			<?php } ?>
 		</tbody>

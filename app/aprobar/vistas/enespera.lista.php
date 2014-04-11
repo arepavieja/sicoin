@@ -68,18 +68,12 @@ $recib_row = $maprobar->selectPorAprobar();
 
 <div class="row">
 	<ul class="nav nav-pills pull-right herramientas-mensaje">
-    <li class="disabled">
-      <a href="" class="text-success" onclick=""><i class="fa fa-check"></i> Aprobar</a>
-    </li>
-    <li class="disabled">
-      <a href="" class="text-success" onclick=""><i class="fa fa-times"></i> En Espera</a>
-    </li>
     <li class="">
       <a href="#" class="text-success" onclick="load('app/correo/vistas/enespera.lista.php','enviado=0','#admin-panel'); return false;"><i class="fa fa-refresh"></i> Refrescar</a>
     </li>
 	</ul>
 </div>
-
+<div class="space-10"></div>
 <!-- ****************************************************-->
 
 <div class="table-responsive">
@@ -130,9 +124,7 @@ $recib_row = $maprobar->selectPorAprobar();
 						<td><?php echo $rr->peapelli.', '.$rr->penombre ?></td>
 						<td>
 							<?php echo $ccorreo->siHayAdjuntos($rr->meide) ?> 
-							<a href="#" onclick="load('app/aprobar/vistas/mensaje.editar.php','meide=<?php echo $rr->meide ?>&activarLeido=0','#admin-panel')">
-								<?php echo $rr->metitulo ?>
-							</a>
+							<?php echo $caprobar->editarLeer($rr->meestado,$rr->metitulo,$rr->meide) ?>
 						</td>
 						<td class="hidden-480">
 							<?php echo $rr->mefecha ?>
@@ -141,13 +133,13 @@ $recib_row = $maprobar->selectPorAprobar();
 							<?php echo substr($rr->mehora, 0,5) ?>
 						</td>
 						<td>
-							<?php echo $ccorreo->estado($rr->meestado); ?>
+							<?php echo $caprobar->estado($rr->meestado); ?>
 						</td>
 					</tr>
 				<?php } ?>
 			<?php } else { ?>
 				<tr>
-					<td colspan="4">No hay mensajes anviados</td>
+					<td colspan="4">No hay mensajes enviados</td>
 				</tr>
 			<?php } ?>
 		</tbody>

@@ -1,12 +1,22 @@
 $(function(){
+	$(".uno").chosen({
+		no_results_text: "No hay resultados",
+		max_selected_options: 1
+	});
+	$(".dos").chosen({
+		no_results_text: "No hay resultados"
+	});
+
 	$('.guardar').on('click',function(){
 		$('.formaDeEnvio').val(1);
 		$('.editar-mensaje').submit();
 	})
+
 	$('.aprobar').on('click',function(){
 		$('.formaDeEnvio').val(2);
 		$('.editar-mensaje').submit();
 	})
+	
 	$('.editar-mensaje').validate({
 		errorElement: 'div',
 		errorClass: 'help-block',
@@ -49,7 +59,7 @@ $(function(){
 			$.post('app/aprobar/procesos/p.mensaje.editar.php',datos,function(data){
 				if(data==1) {
 					//cerrarmodal()
-					load('app/correo/vistas/admin.panel.php','enviado=1','#admin-panel');
+					location.reload()
 				} else {
 					//cerrarmodal()
 					alerta('.msj','danger',data);
@@ -60,3 +70,7 @@ $(function(){
 		}
 	});
 })
+
+function borrarAdjunto(ide) {
+	$.post('app/aprobar/procesos/p.borrarAdjunto.php',ide)
+}

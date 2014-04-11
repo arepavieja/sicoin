@@ -16,10 +16,5 @@ class cCorreo extends mCorreo {
 		return $rt;
 	}	
 
-	function estado($var) {
-		$rt = ($var==0) ? 'En espera' : 'Aprobado';
-		return $rt;
-	}
-
 }
 ?>

@@ -122,15 +122,21 @@ $enide = $_POST['enide'];
 		</tr>
 		<tr><th colspan="2">Mensaje:</th></tr>
 		<tr><td colspan="2"><?php echo $men_row[0]->memensaj ?></td></tr>
-		<?php if(count($adjuntos)>0) { ?>
-			<tr><th colspan="2">Adjuntos (<?php echo count($adjuntos) ?>)</th></tr>
-			<tr>
-				<td colspan="2">
-					<?php foreach($adjuntos as $ad) { ?>
-						<a target="_blank" href="img/adjuntos/<?php echo $ad->arruta ?>"><?php echo $ad->arruta ?></a> - 
-					<?php } ?>
-				</td>
-			</tr>
-		<?php } ?>
-	</tbody>
 </table>
+
+<div class="col-sm-12">
+	<?php if(count($adjuntos)>0) { ?>
+		<label class="bolder control-label">
+			Adjuntos (<?php echo count($adjuntos) ?>)
+		</label>
+			<div class="clearfix"></div>
+			<?php foreach($adjuntos as $ad) { ?>
+				<div class="alert well well-sm pull-left">
+					<a target="_blank" href="img/adjuntos/<?php echo $ad->arruta ?>">
+						<?php echo $ad->arruta ?>
+					</a>&nbsp;&nbsp;&nbsp;
+				</div><div style="padding-right: 2px;"></div>
+			<?php } ?>
+			<div class="clearfix"></div>
+	<?php } ?>
+</div>

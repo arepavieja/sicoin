@@ -11,7 +11,7 @@ class Conexion {
 		$this->host   = 'localhost';
 		$this->usr    = 'sicoin';
 		$this->dbname = 'bdsicoin';
-		$this->pwd    = 'sicoin';
+		$this->pwd    = 'sicoin'; #qwerty #sicoin;
 
 		try {
 			$this->con = new PDO($this->driver.':host='.$this->host.';dbname='.$this->dbname, $this->usr, $this->pwd);

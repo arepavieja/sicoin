@@ -6,20 +6,10 @@ $para      = $maprobar->selectMensajeIdeEditarDestino(1,$_POST['meide']);
 $cc        = $maprobar->selectMensajeIdeEditarDestino(2,$_POST['meide']);
 $adjuntos  = $maprobar->selectMensajeAdjuntosIdeEditar($_POST['meide']);
 ?>
+
 <script src="app/aprobar/vistas/js/wysiwyg.js"></script>
 <script src="app/aprobar/vistas/js/dropzone.js"></script>
 <script src="app/aprobar/vistas/js/guardar.js"></script>
-<script>
-	$(function(){
-		$(".uno").chosen({
-			no_results_text: "No hay resultados",
-			max_selected_options: 1
-		});
-		$(".dos").chosen({
-			no_results_text: "No hay resultados"
-		});
-	})
-</script>
 
 <div class="col-xs-12">
 	<div class="msj"></div>
@@ -76,7 +66,7 @@ $adjuntos  = $maprobar->selectMensajeAdjuntosIdeEditar($_POST['meide']);
 					<div class="clearfix"></div>
 					<?php foreach($adjuntos as $ad) { ?>
 						<div class="alert well well-sm pull-left">
-							<button class="close" data-dismiss="alert" type="button">
+							<button class="close" data-dismiss="alert" type="button" onclick="borrarAdjunto('adide=<?php echo $ad->adide ?>')">
 								<i class="icon-remove"></i> 
 							</button>
 							<a target="_blank" href="img/adjuntos/<?php echo $ad->arruta ?>">
@@ -91,15 +81,11 @@ $adjuntos  = $maprobar->selectMensajeAdjuntosIdeEditar($_POST['meide']);
 			<label for="" class="col-sm-12 bolder">Mensaje:</label>
 			<div class="col-sm-12">
 				<div class="wysiwyg-editor editor"><?php echo $mensaje[0]->memensaj ?></div>
-				<!--<input type="hidden" name="mensaje" id="mensaje"/>-->
 			</div>
 		</div>
 
 		<div class="clearfix form-actions">
 			<div class="col-sm-10"></div>
-			<!--<div class="col-sm-3">
-				<button class="btn btn-default btn-lg"><i class="fa fa-search"></i> Vista Previa</button>
-			</div>-->
 			<div class="col-sm-4 pull-right">
 				<button class="btn btn-success btn-lg pull-right aprobar" type="button">
 					<i class="fa fa-check-square"></i> Guardar Cambios y Aprobar
@@ -113,5 +99,7 @@ $adjuntos  = $maprobar->selectMensajeAdjuntosIdeEditar($_POST['meide']);
 		</div>
 		<div id="fotos"></div>
 		<input type="hidden" class="formaDeEnvio">
+		<input type="hidden" name="meide" value="<?php echo $mensaje[0]->meide ?>">
+		<input type="hidden" name="parappal" value="<?php echo $para[0]->peide ?>">
 	</form>
 </div>

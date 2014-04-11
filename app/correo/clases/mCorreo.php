@@ -10,7 +10,6 @@ class mCorreo {
 	function __construct() {
 		$this->dbh = new Conexion();
 		$this->con = $this->dbh->postgres();
-		$this->mail = new PHPMailer();
 		$this->msj = array();
 		if(isset($_POST)) {
 			foreach($_POST as $indice=>$valor) {
@@ -93,13 +92,6 @@ class mCorreo {
 		$res->bindParam(1,$meide);
 		$res->bindParam(2,$this->para);
 		$exe_4 = ($res->execute()==true) ? true : $this->msj[] = print_r($res->errorInfo());
-		/*if($exe_4==true):
-			$destinatario = $this->selectIde($this->para);
-			$destino  = $destinatario[0]->pecorreo;
-			$destino2 = $destinatario[0]->pecoralt;
-			$rt1      = $this->sendMail($from,$fromName,$destino);
-			$rt2      = $this->sendMail($from,$fromName,$destino2);
-		endif;*/
 		/**
 		 * Enviamos el mensaje a los destinatarios con copia
 		 */
@@ -110,13 +102,6 @@ class mCorreo {
 				$res->bindParam(1,$meide);
 				$res->bindParam(2,$c);
 				$exe_5 = ($res->execute()==true) ? true : $this->msj[] = print_r($res->errorInfo());
-				/*if($exe_5==true):
-					$destinatario = $this->selectIde($c);
-					$destino  = $destinatario[0]->pecorreo;
-					$destino2 = $destinatario[0]->pecoralt;
-					$rt1      = $this->sendMail($from,$fromName,$destino);
-					$rt2      = $this->sendMail($from,$fromName,$destino2);
-				endif;*/
 			}
 		} else {
 			$exe_5 = true;
@@ -287,33 +272,6 @@ class mCorreo {
 		$res->bindParam(1,$meide);
 		$exe_1 = $res->execute();
 		$rt = ($exe_1==true) ? $res->fetchAll(PDO::FETCH_OBJ) : print_r($res->errorInfo());
-		return $rt;
-	}
-
-	function sendMail($desde,$nombredesde,$destino) {
-		$titulo = 'Nueva Correspondencia Interna';
-		$cuerpo = 'Ha recibido una nueva correspondencia, para revisarla por favor visite <a href="http://iutai.tec.ve/casicoin/" target="_blank">
-			iutai.tec.ve</a><br><br><hr><div style="font-size:12px;color:#AEAEAE;font-style:italic;font-weing:bold;">Equipo de Sistemas IUTAI</div>';
-		$this->mail->IsSMTP();
-		$this->mail->SMTPAuth = true;
-		$this->mail->Host     =   "smtp.iutai.tec.ve";
-		$this->mail->Username = "siscoin@iutai.tec.ve";
-		$this->mail->Password = "asdrty123#";
-		$this->mail->Port     = 25;
-		$this->mail->From     = "siscoin@iutai.tec.ve";
-		$this->mail->FromName = 'Equipo de Sistemas IUTAI';
-		$this->mail->AddAddress($destino);
-		$this->mail->IsHTML(true);
-		$this->mail->Subject  = $titulo;
-		$body                 = $cuerpo;
-		$this->mail->Body     = $body;
-		$exito                = $this->mail->Send();
-		if($exito) :
-			$rt = 1;
-		else :
-			$rt = '¡ERROR!';
-		endif;
-
 		return $rt;
 	}
 

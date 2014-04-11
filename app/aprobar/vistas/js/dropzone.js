@@ -1,4 +1,9 @@
 jQuery(function($){
+	var fecha = new Date();
+	dia = fecha.getDate();
+	mes = fecha.getMonth()+1;
+	ano = fecha.getFullYear();
+	fechanom = dia+''+mes+''+ano;
 	  $(".dropzone").dropzone({
 	  	url: 'app/correo/procesos/p.cargar.adjunto.php',
 	  	success:  function (response) {
@@ -6,7 +11,7 @@ jQuery(function($){
               		//alert(response.toSource())
               		var nombre = response.name;
               		var nom = nombre.replace(/\s/g,'');
-              		$("#fotos").append('<input type="hidden" class="cla'+response.size+'" name="imagen[]" value="'+response.size+'_'+nom+'">');
+              		$("#fotos").append('<input type="hidden" class="cla'+response.size+'" name="imagen[]" value="'+fechanom+response.size+'_'+nom+'">');
       					},
 	    paramName: "file", // The name that will be used to transfer the file
 	    maxFilesize: 10, // MB  
