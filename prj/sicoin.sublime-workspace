@@ -568,10 +568,10 @@
 	},
 	"file_history":
 	[
+		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/clases/mAprobar.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/mensaje.leer.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/mensaje.editar.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/cfg/conexion.php",
-		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/clases/mAprobar.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/clases/mCorreo.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/correo/vistas/enviados.lista.php",
 		"/opt/lampp/htdocs/sistemas/iutai/casicoin/app/aprobar/vistas/enespera.lista.php",
@@ -941,6 +941,10 @@
 		"selected_items":
 		[
 			[
+				"mapro",
+				"app/aprobar/clases/mAprobar.php"
+			],
+			[
 				"mapr",
 				"app/aprobar/clases/mAprobar.php"
 			],
@@ -951,10 +955,6 @@
 			[
 				"capr",
 				"app/aprobar/clases/cAprobar.php"
-			],
-			[
-				"mapro",
-				"app/aprobar/clases/mAprobar.php"
 			],
 			[
 				"mpro",
