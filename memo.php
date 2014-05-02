@@ -1,10 +1,8 @@
 <?php 
 require '../../../cfg/base.php';
 require '../../../lib/dompdf/dompdf_config.inc.php';
-$men_row         = $mcorreo->selectMensajeIde($_GET['enide']);
-$remitente_coord = $mcorreo->coordinadorRemitente($men_row[0]->rdeide);
-$concopia        = $mcorreo->conCopia($men_row[0]->meide);
-$numofic 				 = $mcorreo->numeroOficio($men_row[0]->meide,$men_row[0]->rdeide);
+$men_row = $mcorreo->selectMensajeIde($_GET['enide']);
+$concopia = $mcorreo->conCopia($men_row[0]->meide);
 $pie = '
 <script type="text/php">
 	$logo_inf = $pdf->open_object();
@@ -23,7 +21,7 @@ $enc = '
 	$pdf->close_object();
 	$pdf->add_object($logo_sup,"all");
 </script>';
-$html  .= '<meta charset="utf-8">';
+$html  = '<meta charset="utf-8">';
 $html .= '<link href="../../../css/print.css" rel="stylesheet" type="text/css">';
 $html .= '<p></p>';
 $html .= $enc;
@@ -32,7 +30,7 @@ $html .= '<table class="table">
 	<tbody>
 		<tr>
 			<th>Número:</th>
-			<td>'.$men_row[0]->deabrevi.'-'.sprintf("%05d",$numofic[0]->numerooficio).'</td>
+			<td>'.$men_row[0]->deabrevi.'-'.sprintf("%05d",$men_row[0]->enide).'</td>
 		</tr>
 		<tr>
 			<th>Fecha y Hora:</th>
@@ -47,7 +45,7 @@ $html .= '<table class="table">
 		<tr>
 			<th>De:</th>
 			<td>
-				'.$remitente_coord[0]->peapelli.', '.$remitente_coord[0]->penombre.' / '.$remitente_coord[0]->cadescri.' '.$remitente_coord[0]->dedescri.'
+				'.$men_row[0]->rapellido.', '.$men_row[0]->rnombre.' / '.$men_row[0]->rcadescri.' '.$men_row[0]->rdedescri.'
 			</td>
 		</tr>
 		<tr>

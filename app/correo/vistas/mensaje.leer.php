@@ -1,10 +1,12 @@
 <?php 
 require '../../../cfg/base.php';
-$men_row = $mcorreo->selectMensajeIde($_POST['enide']);
-$etiquetas = $mcorreo->etiquetas();
-$adjuntos = $mcorreo->selectMensajeAdjuntosIde($_POST['enide']);
-$q = (isset($_POST['activarLeido']) and $_POST['activarLeido']==1) ? $mcorreo->marcarLeido() : null;
-$enide = $_POST['enide'];
+$men_row         = $mcorreo->selectMensajeIde($_POST['enide']);
+$remitente_coord = $mcorreo->coordinadorRemitente($men_row[0]->rdeide);
+$etiquetas       = $mcorreo->etiquetas();
+$adjuntos        = $mcorreo->selectMensajeAdjuntosIde($_POST['enide']);
+$q               = (isset($_POST['activarLeido']) and $_POST['activarLeido']==1) ? $mcorreo->marcarLeido() : null;
+$enide           = $_POST['enide'];
+$numofic 				 = $mcorreo->numeroOficio($men_row[0]->meide,$men_row[0]->rdeide);
 ?>
 
 <script>
@@ -98,7 +100,7 @@ $enide = $_POST['enide'];
 		</tr>
 		<tr>
 			<th>Número:</th>
-			<td><?php echo $men_row[0]->deabrevi ?>-<?php echo sprintf("%05d",$men_row[0]->enide) ?></td>
+			<td><?php echo $men_row[0]->deabrevi ?>-<?php echo sprintf("%05d",$numofic[0]->numerooficio) ?></td>
 		</tr>
 		<tr>
 			<th>Fecha y Hora:</th>
@@ -107,7 +109,7 @@ $enide = $_POST['enide'];
 		<tr>
 			<th>Remitente:</th>
 			<td>
-				<?php echo $men_row[0]->rapellido.', '.$men_row[0]->rnombre ?> / <?php echo $men_row[0]->rcadescri ?> <?php echo $men_row[0]->rdedescri ?>
+				<?php echo $remitente_coord[0]->peapelli.', '.$remitente_coord[0]->penombre ?> / <?php echo $remitente_coord[0]->cadescri ?> <?php echo $remitente_coord[0]->dedescri ?>
 			</td>
 		</tr>
 		<tr>

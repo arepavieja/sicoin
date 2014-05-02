@@ -55,7 +55,7 @@ $(function(){
 			var msj = $('.wysiwyg-editor').html();
 			var forma = $('.formaDeEnvio').val();
 			var datos = $('.editar-mensaje').serialize()+'&mensaje='+msj+'&forma='+forma;
-			//modalForm('loading.php','');
+			modalForm('loading.aprobar.php','');
 			$.post('app/aprobar/procesos/p.mensaje.editar.php',datos,function(data){
 				if(data==1) {
 					//cerrarmodal()

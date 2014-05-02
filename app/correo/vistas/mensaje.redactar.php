@@ -52,7 +52,7 @@ $usua_rows = $musuarios->selectAll();
 				var msj = $('.wysiwyg-editor').html();
 				//var mensaje = $('#mensaje').val(msj)
 				//alert(msj);
-				modalForm('loading.php','');
+				modalForm('loading.envio.php','');
 				$.post('app/correo/procesos/p.mensaje.enviar.php',$('.redactar-mensaje').serialize()+'&mensaje='+msj,function(data){
 					if(data==1) {
 						$('.modal').modal('hide');

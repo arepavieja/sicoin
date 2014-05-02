@@ -165,7 +165,7 @@ class mCorreo {
 	}
 
 	function selectMensajeIde($enide) {
-		$sql = "SELECT *, per.penombre AS rnombre, per.peapelli AS rapellido, pe2.penombre AS dnombre, pe2.peapelli AS dapellido,
+		$sql = "SELECT *, per.deide as rdeide, per.penombre AS rnombre, per.peapelli AS rapellido, pe2.penombre AS dnombre, pe2.peapelli AS dapellido,
 			car.cadescri AS rcadescri, ca2.cadescri AS dcadescri,
 			dep.dedescri AS rdedescri, de2.dedescri AS ddedescri
 			FROM adentrad AS ent 
@@ -273,6 +273,21 @@ class mCorreo {
 		$exe_1 = $res->execute();
 		$rt = ($exe_1==true) ? $res->fetchAll(PDO::FETCH_OBJ) : print_r($res->errorInfo());
 		return $rt;
+	}
+
+	function coordinadorRemitente($deide) {
+		$sql = "SELECT * FROM coordinadormemo(?) AS rows(peapelli character varying(30), penombre character varying(30), cadescri character varying(30), dedescri character varying(50))";
+		$res = $this->con->prepare($sql);
+		$res->bindParam(1,$deide);
+		return ($res->execute()==1) ? $res->fetchAll(PDO::FETCH_OBJ) : print_r($res->errorInfo());
+	}
+
+	function numeroOficio($meide, $deide) {
+		$sql = "SELECT numerooficio(?,?)";
+		$res = $this->con->prepare($sql);
+		$res->bindParam(1,$meide);
+		$res->bindParam(2,$deide);
+		return ($res->execute()==1) ? $res->fetchAll(PDO::FETCH_OBJ) : print_r($res->errorInfo());
 	}
 
 } #m
